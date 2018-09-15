@@ -4,7 +4,7 @@ import { Icon } from 'react-native-elements';
 // import PropTypes from 'prop-types';
 import * as firebase from 'firebase';
 import StudyScreen from './StudyScreen';
-import TestScreen from './TestScreen';
+import ProfileScreen from './ProfileScreen';
 import SwiperScreen from './SwiperScreen';
 
 // initialize firebase
@@ -21,7 +21,7 @@ firebase.initializeApp(firebaseConfig);
 const App = createMaterialTopTabNavigator(
   {
     Home: {
-      screen: TestScreen,
+      screen: ProfileScreen,
       navigationOptions: {
         tabBarLabel: 'Profile',
         tabBarIcon: ({ tintColor }) => <Icon name="person" size={30} color={tintColor} />,
