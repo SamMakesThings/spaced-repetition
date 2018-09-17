@@ -4,6 +4,9 @@
   "rules": {
     "linebreak-style": 0,
     "react/jsx-one-expression-per-line": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/prop-types": ["error", { "ignore": ["tintColor"] }],
+    "global-require": 0,
+    "quote-props": 0
   }
 }

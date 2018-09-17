@@ -1,7 +1,8 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-// import PropTypes from 'prop-types';
+import * as Expo from 'expo';
+import { Text } from 'react-native';
 import * as firebase from 'firebase';
 import StudyScreen from './StudyScreen';
 import ProfileScreen from './ProfileScreen';
@@ -18,7 +19,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-const App = createMaterialTopTabNavigator(
+const Nav = createMaterialTopTabNavigator(
   {
     Home: {
       screen: ProfileScreen,
@@ -59,5 +60,34 @@ const App = createMaterialTopTabNavigator(
     },
   },
 );
+
+class App extends React.Component {
+  state = {
+    fontLoaded: false,
+  };
+
+  async componentWillMount() {
+    try {
+      await Expo.Font.loadAsync({
+        Roboto: require('./assets/fonts/Roboto-Regular.ttf'),
+        Roboto_medium: require('./assets/fonts//Roboto-Medium.ttf'),
+        // Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
+      });
+
+      this.setState({ fontLoaded: true });
+    } catch (error) {
+      console.log("Your fonts didn't work");
+    }
+  }
+
+  render() {
+    const { fontLoaded } = this.state;
+
+    if (fontLoaded) {
+      return <Text>Loading, wait a goddamn minute pls</Text>;
+    }
+    return <Nav />;
+  }
+}
 
 export default App;

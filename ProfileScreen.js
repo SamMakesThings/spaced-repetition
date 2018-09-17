@@ -1,9 +1,19 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
+// import { Text, Button } from 'react-native';
 import {
-  Container, Content, List, ListItem, Left, Body, Icon, Right,
+  Text,
+  Button,
+  Container,
+  Content,
+  List,
+  ListItem,
+  Left,
+  Body,
+  Icon,
+  Right,
+  Title,
 } from 'native-base';
-import Expo from 'expo';
+import { Expo } from 'expo';
 // import styles from './styles';
 
 async function signInWithGoogleAsync() {
@@ -43,7 +53,7 @@ const ProfileScreen = () => (
             </Button>
           </Left>
           <Body>
-            <Text>Press here to sign in with Google</Text>
+            <Title>Press here to sign in with Google</Title>
           </Body>
           <Right />
         </ListItem>
